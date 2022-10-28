@@ -33,6 +33,16 @@ namespace ConsoleApplication1
             Console.WriteLine();
             int choice = Convert.ToInt32(Console.ReadLine());
 
+            if (choice != 1 && choice != 2 && choice != 3 && choice != 4) {
+                Console.WriteLine();
+                Console.WriteLine("Invalid option selected. Please select 1, 2, 3, or 4");
+                Console.WriteLine();
+                Console.WriteLine("Press 'Enter' to return to the main menu");
+                Console.WriteLine();
+
+                
+            }
+
 
 
             if (choice == 1)
@@ -227,10 +237,12 @@ namespace ConsoleApplication1
                     Console.WriteLine();
                     Console.WriteLine("Max number of students (30) reached. Please remove a student from your class.");
                 }
+                Console.Clear();
             }
 
             if (choice == 2)
             {
+                int found = 0;
                 Console.WriteLine();
                 Console.WriteLine();
                 Console.WriteLine("Finding a Student");
@@ -246,6 +258,7 @@ namespace ConsoleApplication1
                 {
                     if (student.name == target)
                     {
+                        found = 1;
                         Console.WriteLine();
                         Console.WriteLine();
                         Console.WriteLine("Student found!");
@@ -273,6 +286,7 @@ namespace ConsoleApplication1
                 {
                     if (classList[i].name == target && classList[i].grade == 12)
                     {
+                        found = 1;
                         int numOfClasses = 0;
                         if (classList[i].subject1Grade > 0)
                         {
@@ -318,6 +332,17 @@ namespace ConsoleApplication1
 
                     }
                 }
+
+                if (found == 0) {
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine("The student could not be located. Please return to the main menu and try again.");
+                    Console.WriteLine();
+                    Console.WriteLine("Press 'Enter' to return to the main menu");
+                }
+
+                Console.Clear();
+
             }
 
             if (choice == 3)
@@ -347,12 +372,14 @@ namespace ConsoleApplication1
                         {
                             classList.RemoveAt(i);
                             Console.WriteLine();
+                            Console.WriteLine();
                             Console.WriteLine("The student has been removed from your class.");
                             Console.WriteLine();
                             Console.WriteLine("Press 'Enter' to return to the main menu");
                         }
 
                         else {
+                            Console.WriteLine();
                             Console.WriteLine();
                             Console.WriteLine("The student is still in your class");
                             Console.WriteLine();
@@ -370,7 +397,7 @@ namespace ConsoleApplication1
 
 
 
-
+                Console.Clear();
             }
 
             if (choice == 4)
